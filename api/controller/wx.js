@@ -25,11 +25,14 @@ var invoke = function*(method, uri, qs, body) {
 
 var getToken = async function(ctx) {
     var token = await redis.get('wechatauth-token');
+    console.log("token1 = " + token);
     if (token) {
+        console.log("token2= " + token);
         return token;
     } else {
         var uri = `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${config.CorpID}&corpsecret=${config.Secret}`;
         var newToken = await invoke('GET', uri, null, null);
+        console.log("newToken = " + token);
         await redis.set('wechatauth-token', newToken.access_token);
         await redis.expire('wechatauth-token', 7000);
         return newToken.access_token;
