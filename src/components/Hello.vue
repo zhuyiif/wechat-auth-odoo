@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <div class="header">wechat auth</div>
+
+    abcedf
  
   </div>
 </template>
