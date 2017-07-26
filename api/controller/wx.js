@@ -26,7 +26,7 @@ var invoke = function*(method, uri, qs, body) {
 var getToken = async function(ctx) {
     var token = await redis.get('wechatauth-token');
     console.log("token1 = " + token);
-    if (token) {
+    if (typeof(token) != "undefined") {
         console.log("token2= " + token);
         return token;
     } else {
