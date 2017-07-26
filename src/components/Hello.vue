@@ -31,6 +31,8 @@ $(document).ready(function () {
     var code = $.getUrlVar('code');
     console.log("code = " + code);
 
+    alert('code:' + code);
+
     if (code) {
 
         $.post("http://119.29.187.201:9191/wx", { code: code })
@@ -39,8 +41,6 @@ $(document).ready(function () {
                 currentUserId = data.userid;
                 
             });
-
-
 
     }
     else {
