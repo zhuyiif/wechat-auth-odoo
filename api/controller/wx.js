@@ -26,8 +26,9 @@ var invoke = function*(method, uri, qs, body) {
 var getToken = async function(ctx) {
     var token = await redis.get('wechatauth-token');
     console.log("token3 = " + token);
-    if (token && typeof(token) != "undefined") {
-        console.log("token3= " + typeof(token) == "undefined");
+    if (token && typeof(token) != "undefined" && token != "undefined") {
+        console.log("token3= " + token == "undefined");
+        console.log("token4 len = " + token.length);
         return token;
     } else {
         var uri = `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${config.CorpID}&corpsecret=${config.Secret}`;
