@@ -24,7 +24,7 @@ var invoke = function*(method, uri, qs, body) {
 }
 
 var getToken = function*() {
-    var token = yield redis.get('calendar-token');
+    var token = yield redis.get('wechatauth-token');
     if (token) {
         return token;
     } else {
@@ -49,7 +49,7 @@ var getDepartment = function* getDepartment(id, token) {
 }
 
 
-var getWeChatUserInfo = async function(ctx) {
+var getWeChatUserInfo = async function(code) {
     var token = await getToken();
     var uri = `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${token}&code=${code}`;
     var result = await invoke('GET', uri);
