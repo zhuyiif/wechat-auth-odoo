@@ -49,23 +49,23 @@ var getDepartment = function* getDepartment(id, token) {
 }
 
 
-var getWeChatUserInfo = function*(code) {
-    var token = yield getToken();
+var getWeChatUserInfo = async function(ctx) {
+    var token = await getToken();
     var uri = `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${token}&code=${code}`;
-    var result = yield invoke('GET', uri);
+    var result = await invoke('GET', uri);
     var userid = result.UserId;
     var userUri = `https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=${token}&userid=${userid}`;
-    var user = yield invoke('GET', userUri);
+    var user = await invoke('GET', userUri);
     console.log("user = " + JSON.stringify(user));
     console.log("result = " + JSON.stringify(result));
     return user;
 }
 
-exports.getUserInfo = function*() {
-    var code = this.request.body.code;
-    var user = yield getWeChatUserInfo(code);
+exports.getUserInfo = async function(ctx) {
+    var code = ctx.request.body.code;
+    var user = await getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
-    this.body = user;
+    ctx.body = user;
 }
 
 
