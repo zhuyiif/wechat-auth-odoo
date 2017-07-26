@@ -8,8 +8,8 @@ var config = {
 }
 
 
-var invoke = function*(method, uri, qs, body) {
-    var result = yield rp({
+var invoke = async function(method, uri, qs, body) {
+    var result = await rp({
         method: method,
         uri: uri,
         qs: qs,
