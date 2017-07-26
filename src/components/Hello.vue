@@ -33,7 +33,7 @@ $(document).ready(function () {
     console.log("url = " + window.location.href);
 
 
-    alert('url:' + window.location.href);
+    
 
     if (code) {
 
@@ -41,6 +41,8 @@ $(document).ready(function () {
             .done(function (data) {
             
                 currentUserId = data.userid;
+
+                alert('user id:' + currentUserId);
                 
             });
 
