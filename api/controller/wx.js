@@ -23,15 +23,15 @@ var invoke = function*(method, uri, qs, body) {
     return result;
 }
 
-var getToken = function*() {
-    var token = yield redis.get('wechatauth-token');
+var getToken = async function(ctx) {
+    var token = await redis.get('wechatauth-token');
     if (token) {
         return token;
     } else {
         var uri = `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${config.CorpID}&corpsecret=${config.Secret}`;
-        var newToken = yield invoke('GET', uri, null, null);
-        yield redis.set('calendar-token', newToken.access_token);
-        yield redis.expire('calendar-token', 7000);
+        var newToken = await invoke('GET', uri, null, null);
+        await redis.set('wechatauth-token', newToken.access_token);
+        await redis.expire('wechatauth-token', 7000);
         return newToken.access_token;
     }
 }
@@ -51,6 +51,7 @@ var getDepartment = function* getDepartment(id, token) {
 
 var getWeChatUserInfo = async function(code) {
     var token = await getToken();
+    console.log("token = " + token);
     var uri = `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${token}&code=${code}`;
     var result = await invoke('GET', uri);
     var userid = result.UserId;
