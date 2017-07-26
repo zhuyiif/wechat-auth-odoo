@@ -32,6 +32,8 @@ $(document).ready(function () {
     console.log("code = " + code);
     console.log("url = " + window.location.href);
 
+     alert('code:' + code);
+
 
     
 
@@ -42,7 +44,7 @@ $(document).ready(function () {
             
                 currentUserId = data.userid;
 
-                alert('user id:' + currentUserId);
+               
                 
             });
 
