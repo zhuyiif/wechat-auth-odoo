@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     if (code) {
 
-        $.post("http://119.29.187.201:8990/wx", { code: code })
+        $.post("http://119.29.187.201:9191/wx", { code: code })
             .done(function (data) {
             
                 currentUserId = data.userid;
