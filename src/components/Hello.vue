@@ -30,10 +30,10 @@ $(document).ready(function () {
 
     var code = $.getUrlVar('code');
     console.log("code = " + code);
+    console.log("url = " + window.location.href);
+
 
     alert('url:' + window.location.href);
-
-    alert('code:' + code);
 
     if (code) {
 
