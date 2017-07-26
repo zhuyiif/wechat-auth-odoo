@@ -47,7 +47,7 @@ $(document).ready(function () {
     }
     else {
 
-        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=ww459483b92c637742&redirect_uri=http://auth.cq-tct.com&response_type=code&scope=SCOPE&state=STATE#wechat_redirect';
+        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wwbf94872d6daf233a&redirect_uri=auth.cq-tct.com&response_type=code&scope=SCOPE&agentid=1000012&state=STATE#wechat_redirect';
 
     }
 
