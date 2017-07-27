@@ -72,7 +72,8 @@ exports.getUserInfo = async function(ctx) {
     var code = ctx.request.body.code;
     var user = await getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
-    ctx.body = user;
+    this.body = user;
+
 }
 
 
