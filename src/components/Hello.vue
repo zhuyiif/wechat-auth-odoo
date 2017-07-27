@@ -32,11 +32,11 @@ $(document).ready(function () {
     console.log("code = " + code);
     console.log("url = " + window.location.href);
 
+
+   
+
+
      
-
-
-    
-
     if (code) {
 
         $.post("http://119.29.187.201:9191/wx", { code: code })
