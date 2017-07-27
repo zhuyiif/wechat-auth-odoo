@@ -23,7 +23,7 @@ var invoke = async function(method, uri, qs, body) {
     return result;
 }
 
-var getToken = function(ctx) {
+var getToken = async function(ctx) {
     var token = await redis.get('wechatauth-token');
     console.log("token3 = " + token);
     if (token && typeof(token) != "undefined" && token != "undefined") {
@@ -55,7 +55,7 @@ var getDepartment = function* getDepartment(id, token) {
 }
 
 
-var getWeChatUserInfo = function(code) {
+var getWeChatUserInfo = async function(code) {
     var token = await getToken();
     console.log("token = " + token);
     var uri = `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${token}&code=${code}`;
@@ -68,7 +68,7 @@ var getWeChatUserInfo = function(code) {
     return user;
 }
 
-exports.getUserInfo = function(ctx) {
+exports.getUserInfo = async function(ctx) {
     var code = ctx.request.body.code;
     var user = await getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
@@ -77,8 +77,8 @@ exports.getUserInfo = function(ctx) {
 }
 
 
-exports.tryCreateOdooUser = function(user) {
-    var res = await rp({
+exports.tryCreateOdooUser = function*(user) {
+    var res = yield rp({
         method: 'POST',
         uri: 'http://119.29.187.201:12345/web/signup',
         qs: null,
