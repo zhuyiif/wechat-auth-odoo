@@ -43,9 +43,12 @@ $(document).ready(function () {
             .done(function (data) {
             
                 currentUserId = data.userid;
+                $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
+                  .done(function (data) {
 
-               
-                
+                    console.log("data = " + data);
+
+                  }); 
             });
 
     }

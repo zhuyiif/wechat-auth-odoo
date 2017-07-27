@@ -76,6 +76,26 @@ exports.getUserInfo = async function(ctx) {
 }
 
 
+exports.tryCreateOdooUser = async function(user) {
+    var res = await rp({
+        method: 'POST',
+        uri: 'http://119.29.187.201:12345/web/signup',
+        qs: null,
+        form: {
+            login: user.email,
+            password: user.password,
+            confirm_password: user.password,
+            name: user.name
+        },
+        header: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        resolveWithFullResponse: true
+    });
+    return res;
+}
+
+
 const Odoo = require('odoo-connect');
 let connect = async function(host, port, db, user, password) {
     let _self = this;
