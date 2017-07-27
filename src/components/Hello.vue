@@ -32,7 +32,7 @@ $(document).ready(function () {
     console.log("code = " + code);
     console.log("url = " + window.location.href);
 
-     alert('code:' + code);
+     
 
 
     
@@ -43,6 +43,8 @@ $(document).ready(function () {
             .done(function (data) {
             
                 currentUserId = data.userid;
+                alert('userid:' + currentUserId);
+                
                 $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
                   .done(function (data) {
 
