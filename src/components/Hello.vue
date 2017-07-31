@@ -41,15 +41,15 @@ $(document).ready(function () {
      
     if (code) {
 
-      $.post("http://119.29.187.201:9191/wx",
-    {
-      code: code 
-    },
-    function(data,status){
+    //   $.post("http://119.29.187.201:9191/wx",
+    // {
+    //   code: code 
+    // },
+    // function(data,status){
 
-      alert(data.userid)
+    //   alert(data.userid)
       
-    });
+    // });
 
 
 
