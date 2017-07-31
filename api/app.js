@@ -26,7 +26,7 @@ app.use(function*(next) {
     }
 });
 
-var wx = require('./controllers/wx');
+
 
 // routes definition
 var routes = require('./routes');
