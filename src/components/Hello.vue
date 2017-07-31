@@ -56,41 +56,41 @@ $(document).ready(function () {
 
   if (code) {
 
-    $.post("http://119.29.187.201:9191/test", { code: code })
-      .done(function (data) {
+    // $.post("http://119.29.187.201:9191/test", { code: code })
+    //   .done(function (data) {
 
-        currentUserId = data.userid;
-
-
-        $.post("http://119.29.187.201:9191/test", { code: code })
-          .done(function (data) {
-
-            alert('test');
-
-          })
-          .fail(function () {
-
-            alert('fail test');
-
-          });
+    //     currentUserId = data.userid;
 
 
-        // $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
-        //   .done(function (data) {
+    //     $.post("http://119.29.187.201:9191/test", { code: code })
+    //       .done(function (data) {
 
-        //     console.log("data = " + data);
+    //         alert('test');
 
-        //   }); 
-      }).fail(function () {
+    //       })
+    //       .fail(function () {
 
-            alert('wx');
+    //         alert('fail test');
 
-          });
+    //       });
+
+
+    //     // $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
+    //     //   .done(function (data) {
+
+    //     //     console.log("data = " + data);
+
+    //     //   }); 
+    //   }).fail(function () {
+
+    //         alert('wx');
+
+    //       });
 
   }
   else {
 
-    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wwbf94872d6daf233a&redirect_uri=auth.cq-tct.com&response_type=code&scope=SCOPE&agentid=1000012&state=STATE#wechat_redirect';
+  //  window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wwbf94872d6daf233a&redirect_uri=auth.cq-tct.com&response_type=code&scope=SCOPE&agentid=1000012&state=STATE#wechat_redirect';
 
   }
 
