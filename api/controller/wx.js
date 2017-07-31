@@ -72,7 +72,7 @@ exports.getUserInfo = function*(ctx) {
     var code = this.request.body.code;
     var user = yield getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
-    this.body = { "userid": user.userid, "name": user.name };
+    this.body = { "userid": "test", "name": "test" };
 }
 
 
