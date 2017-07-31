@@ -77,6 +77,13 @@ exports.getUserInfo = function*(ctx) {
 }
 
 
+exports.test = function*(ctx) {
+
+    this.body = { "username": "xixi" };
+
+}
+
+
 
 
 exports.tryCreateOdooUser = function*(ctx) {
