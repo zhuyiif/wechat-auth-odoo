@@ -72,7 +72,7 @@ exports.getUserInfo = function*(ctx) {
     var code = this.request.body.code;
     var user = yield getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
-    ctx.body = user;
+    this.body = user;
 
 }
 
@@ -98,7 +98,7 @@ exports.tryCreateOdooUser = function*(ctx) {
         },
         resolveWithFullResponse: true
     });
-    ctx.body = res;
+    this.body = res;
 }
 
 
