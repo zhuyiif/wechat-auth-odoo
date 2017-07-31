@@ -10,7 +10,7 @@ app.use(require('koa-bodyparser')());
 app.use(json());
 app.use(logger());
 app.use(require('koa-static')(__dirname + '/public'));
-
+const views = require('koa-views');
 app.use(views(__dirname + '/views', {
     extension: 'pug'
 }));
