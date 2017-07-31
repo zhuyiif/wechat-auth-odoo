@@ -8,8 +8,8 @@ var config = {
 }
 
 
-var invoke = async function(method, uri, qs, body) {
-    var result = await rp({
+var invoke = function*(method, uri, qs, body) {
+    var result = yield rp({
         method: method,
         uri: uri,
         qs: qs,
@@ -23,8 +23,8 @@ var invoke = async function(method, uri, qs, body) {
     return result;
 }
 
-var getToken = async function(ctx) {
-    var token = await redis.get('wechatauth-token');
+var getToken = function*() {
+    var token = yield redis.get('wechatauth-token');
     console.log("token3 = " + token);
     if (token && typeof(token) != "undefined" && token != "undefined") {
         console.log("token3= " + token == "undefined");
@@ -34,10 +34,10 @@ var getToken = async function(ctx) {
         var uri = `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${config.CorpID}&corpsecret=${config.Secret}`;
 
         console.log("uri = " + uri);
-        var newToken = await invoke('GET', uri);
+        var newToken = yield invoke('GET', uri, null, null);
         console.log("newToken = " + token);
-        await redis.set('wechatauth-token', newToken.access_token);
-        await redis.expire('wechatauth-token', 7000);
+        yield redis.set('wechatauth-token', newToken.access_token);
+        yield redis.expire('wechatauth-token', 7000);
         return newToken.access_token;
     }
 }
@@ -55,22 +55,22 @@ var getDepartment = function* getDepartment(id, token) {
 }
 
 
-var getWeChatUserInfo = async function(code) {
-    var token = await getToken();
+var getWeChatUserInfo = function*(code) {
+    var token = yield getToken();
     console.log("token = " + token);
     var uri = `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${token}&code=${code}`;
-    var result = await invoke('GET', uri);
+    var result = yield invoke('GET', uri);
     var userid = result.UserId;
     var userUri = `https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=${token}&userid=${userid}`;
-    var user = await invoke('GET', userUri);
+    var user = yield invoke('GET', userUri);
     console.log("user = " + JSON.stringify(user));
     console.log("result = " + JSON.stringify(result));
     return user;
 }
 
-exports.getUserInfo = async function(ctx) {
-    var code = ctx.request.body.code;
-    var user = await getWeChatUserInfo(code);
+exports.getUserInfo = function*(ctx) {
+    var code = this.request.body.code;
+    var user = yield getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
     ctx.body = user;
 
