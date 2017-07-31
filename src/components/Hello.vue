@@ -41,15 +41,19 @@ $(document).ready(function () {
      
     if (code) {
 
-    //   $.post("http://119.29.187.201:9191/wx",
-    // {
-    //   code: code 
-    // },
-    // function(data,status){
 
-    //   alert(data.userid)
-      
-    // });
+     $.post("http://119.29.187.201:9191/wx", { code: code })
+            .done(function (data) {
+
+               alert( "sunc" );
+
+            })
+            .fail(function() {
+    alert( "error" );
+})
+.always(function() {
+    alert( "finished" );
+ });
 
 
 
