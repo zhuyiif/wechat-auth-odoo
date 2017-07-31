@@ -79,11 +79,11 @@ exports.getUserInfo = function*(ctx) {
 
 
 
-exports.tryCreateOdooUser = async function(ctx) {
+exports.tryCreateOdooUser = function*(ctx) {
 
-    var user = ctx.body.user;
+    var user = this.request.body.user;
 
-    var res = await rp({
+    var res = yield rp({
         method: 'POST',
         uri: 'http://119.29.187.201:12345/web/signup',
         qs: null,
