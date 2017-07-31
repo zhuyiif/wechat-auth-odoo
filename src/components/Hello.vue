@@ -62,7 +62,7 @@ $(document).ready(function () {
         currentUserId = data.userid;
 
 
-        $.post("http://localhost:9191/test", { code: code })
+        $.post("http://119.29.187.201:9191/test", { code: code })
           .done(function (data) {
 
             alert('test');
