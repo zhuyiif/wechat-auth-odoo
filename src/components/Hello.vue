@@ -41,11 +41,11 @@ $(document).ready(function () {
           alert('test1');
 
         })
-       .fail(function () {
+       .fail(function(xhr, status) {
 
-          alert('fail1');
-
-        });
+         alert(JSON.stringify(xhr)+'---' + JSON.stringify(status) );
+  
+})
 
 
 
