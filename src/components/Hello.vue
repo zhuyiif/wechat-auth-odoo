@@ -1,10 +1,12 @@
 <template>
-  <div class="hello">
+  <div class="hello"> abcd
     <div class="header">wechat auth</div>
 
     abcedf
  
   </div>
+
+
 </template>
 
 <script>
@@ -42,8 +44,11 @@ $(document).ready(function () {
         $.post("http://119.29.187.201:9191/wx", { code: code })
             .done(function (data) {
 
+              $(".hello").html('test');
+              $(".header").html('test1');
+
                 currentUserId = data.userid;
-                alert('userid:' + currentUserId);
+             
 
                 $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
                   .done(function (data) {
