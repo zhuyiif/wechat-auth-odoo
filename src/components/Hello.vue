@@ -35,7 +35,7 @@ $(document).ready(function () {
 
 
 
-  $.post("http://119.29.187.201:9191/test", { code: code })
+  $.post("http://localhost:9191/test", { code: code })
         .done(function (data) {
 
           alert('test1');
