@@ -25,17 +25,22 @@ $.extend({
   }
 });
 
-$(document).ready(function () {
+
+export default {
+  name: 'hello',
+  data() {
+    return {
+      data: []
+    }
+  },
+  mounted() {
+
+    $(document).ready(function () {
   var _self = this;
 
   var code = $.getUrlVar('code');
   console.log("code = " + code);
   console.log("url = " + window.location.href);
-
-
-
-
-
 
   if (code) {
 
@@ -94,14 +99,8 @@ $(document).ready(function () {
 
 
 });
-export default {
-  name: 'hello',
-  data() {
-    return {
-      data: []
-    }
-  },
-  mounted() {
+
+
 
   }
 }
