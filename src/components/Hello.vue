@@ -41,22 +41,34 @@ $(document).ready(function () {
      
     if (code) {
 
-        $.post("http://119.29.187.201:9191/wx", { code: code })
-            .done(function (data) {
+      $.post("http://119.29.187.201:9191/wx",
+    {
+      code: code 
+    },
+    function(data,status){
 
-              $(".hello").html('test');
-              $(".header").html('test1');
+      alert(data.userid)
+      
+    });
 
-                currentUserId = data.userid;
+
+
+        // $.post("http://119.29.187.201:9191/wx", { code: code })
+        //     .done(function (data) {
+
+        //       $(".hello").html('test');
+        //       $(".header").html('test1');
+
+        //         currentUserId = data.userid;
              
 
-                $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
-                  .done(function (data) {
+        //         $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
+        //           .done(function (data) {
 
-                    console.log("data = " + data);
+        //             console.log("data = " + data);
 
-                  }); 
-            });
+        //           }); 
+        //     });
 
     }
     else {
