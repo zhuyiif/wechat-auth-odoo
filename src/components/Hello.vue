@@ -48,38 +48,38 @@ $(document).ready(function () {
     })
 
 
-  if (code) {
+  // if (code) {
 
-    $.post("http://119.29.187.201:9191/test", { code: code })
-      .done(function (data) {
-
-
+  //   $.post("http://119.29.187.201:9191/test", { code: code })
+  //     .done(function (data) {
 
 
-        $.post("http://119.29.187.201:9191/test", { code: code })
-          .done(function (data) {
 
-            alert('test');
 
-          })
-          .fail(function () {
+  //       $.post("http://119.29.187.201:9191/test", { code: code })
+  //         .done(function (data) {
 
-            alert('fail test');
+  //           alert('test');
 
-          });
+  //         })
+  //         .fail(function () {
 
-      }).fail(function () {
+  //           alert('fail test');
 
-        alert('wx');
+  //         });
 
-      });
+  //     }).fail(function () {
 
-  }
-  else {
+  //       alert('wx');
 
-    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wwbf94872d6daf233a&redirect_uri=auth.cq-tct.com&response_type=code&scope=SCOPE&agentid=1000012&state=STATE#wechat_redirect';
+  //     });
 
-  }
+  // }
+  // else {
+
+  //   window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wwbf94872d6daf233a&redirect_uri=auth.cq-tct.com&response_type=code&scope=SCOPE&agentid=1000012&state=STATE#wechat_redirect';
+
+  // }
 
 
 });
