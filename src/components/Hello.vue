@@ -46,9 +46,13 @@ $(document).ready(function () {
         alert("sunc");
 
       })
-      .fail(function (data) {
-        alert(JSON.stringify(data));
-      })
+      .fail(function(xhr, status) {
+
+        alert(JSON.stringify(xhr) +'---' + JSON.stringify(status));
+       
+
+  
+})
 
 
       //     $.post("http://119.29.187.201:9191/test", { })
