@@ -46,8 +46,8 @@ $(document).ready(function () {
         alert("sunc");
 
       })
-      .fail(function () {
-        alert("error");
+      .fail(function (data) {
+        alert(JSON.stringify(data));
       })
 
 
