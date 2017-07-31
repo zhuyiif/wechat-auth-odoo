@@ -50,16 +50,21 @@ $(document).ready(function () {
 
   if (code) {
 
+    var currentID;
+
     $.post("http://119.29.187.201:9191/wx", { code: code })
       .done(function (data) {
 
         alert(data.userid);
+        currentID = data.userid;
 
         $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
           .done(function (data) {
 
+            alert('http://119.29.187.201:12345/web/login?wechatname='+currentID);
 
-            window.location.href = 'http://119.29.187.201:12345/web/login';
+
+            window.location.href = 'http://119.29.187.201:12345/web/login?wechatname='+currentID;
 
             
 
