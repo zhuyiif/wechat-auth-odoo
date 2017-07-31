@@ -35,17 +35,17 @@ $(document).ready(function () {
 
 
 
-  // $.post("http://localhost:9191/test", { code: code })
-  //       .done(function (data) {
+  $.post("http://119.29.187.201:9191/test", { code: code })
+        .done(function (data) {
 
-  //         alert('test');
+          alert('test1');
 
-  //       })
-  //      .fail(function () {
+        })
+       .fail(function () {
 
-  //         alert('fail');
+          alert('fail1');
 
-  //       });
+        });
 
 
 
@@ -56,13 +56,13 @@ $(document).ready(function () {
 
   if (code) {
 
-    $.post("http://localhost:9191/test", { code: code })
+    $.post("http://119.29.187.201:9191/test", { code: code })
       .done(function (data) {
 
         currentUserId = data.userid;
 
 
-        $.post("http://localhost:9191/test", { code: code })
+        $.post("http://119.29.187.201:9191/test", { code: code })
           .done(function (data) {
 
             alert('test');
