@@ -45,30 +45,30 @@ export default {
   if (code) {
 
 
-    $.post("http://119.29.187.201:9191/wx", { code: code })
+//     $.post("http://119.29.187.201:9191/wx", { code: code })
+//       .done(function (data) {
+
+//         alert("sunc");
+
+//       })
+//       .fail(function(xhr, status) {
+
+//         alert(JSON.stringify(xhr) +'---' + JSON.stringify(status));
+       
+
+  
+// })
+
+
+          $.post("http://119.29.187.201:9191/test", { })
       .done(function (data) {
 
         alert("sunc");
 
       })
-      .fail(function(xhr, status) {
-
-        alert(JSON.stringify(xhr) +'---' + JSON.stringify(status));
-       
-
-  
-})
-
-
-      //     $.post("http://119.29.187.201:9191/test", { })
-      // .done(function (data) {
-
-      //   alert("sunc");
-
-      // })
-      // .fail(function () {
-      //   alert("error");
-      // })
+      .fail(function () {
+        alert("error");
+      })
 
 
 
