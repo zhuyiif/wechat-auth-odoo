@@ -77,13 +77,8 @@ exports.getUserInfo = async function(ctx) {
 }
 
 
-
-
-exports.tryCreateOdooUser = async function(ctx) {
-
-    var user = ctx.body.user;
-
-    var res = await rp({
+exports.tryCreateOdooUser = function*(user) {
+    var res = yield rp({
         method: 'POST',
         uri: 'http://119.29.187.201:12345/web/signup',
         qs: null,
@@ -98,7 +93,7 @@ exports.tryCreateOdooUser = async function(ctx) {
         },
         resolveWithFullResponse: true
     });
-    ctx.body = res;
+    return res;
 }
 
 
