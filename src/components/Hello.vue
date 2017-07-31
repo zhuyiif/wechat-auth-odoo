@@ -70,7 +70,7 @@ $(document).ready(function () {
           })
           .fail(function () {
 
-            alert('fail');
+            alert('fail test');
 
           });
 
@@ -81,7 +81,11 @@ $(document).ready(function () {
         //     console.log("data = " + data);
 
         //   }); 
-      });
+      }).fail(function () {
+
+            alert('wx');
+
+          });
 
   }
   else {
