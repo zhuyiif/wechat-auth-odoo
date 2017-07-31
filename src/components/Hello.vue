@@ -35,23 +35,17 @@ $(document).ready(function () {
 
 
 
-//   $.post("http://localhost:9191/test", { code: code })
-//         .done(function (data) {
+  $.post("http://119.29.187.201:9191/test", { code: code })
+    .done(function (data) {
 
-//           alert('test1');
+      alert('test1');
 
-//         })
-//        .fail(function(xhr, status) {
+    })
+    .fail(function (xhr, status) {
 
-//          alert(JSON.stringify(xhr)+'---' + JSON.stringify(status) );
-  
-// })
+      alert(JSON.stringify(xhr) + '---' + JSON.stringify(status));
 
-
-
-
-
-
+    })
 
 
   if (code) {
@@ -59,7 +53,7 @@ $(document).ready(function () {
     $.post("http://119.29.187.201:9191/test", { code: code })
       .done(function (data) {
 
-       
+
 
 
         $.post("http://119.29.187.201:9191/test", { code: code })
@@ -74,18 +68,11 @@ $(document).ready(function () {
 
           });
 
-
-        // $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
-        //   .done(function (data) {
-
-        //     console.log("data = " + data);
-
-        //   }); 
       }).fail(function () {
 
-            alert('wx');
+        alert('wx');
 
-          });
+      });
 
   }
   else {

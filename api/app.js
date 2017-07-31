@@ -19,6 +19,10 @@ app.use(views(__dirname + '/views', {
     extension: 'pug'
 }));
 
+var cors = require('koa-cors');
+app.use(cors());
+
+
 // logger
 app.use(async(ctx, next) => {
     const start = new Date();
