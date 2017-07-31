@@ -87,7 +87,7 @@ exports.test = async function(ctx) {
 
 exports.tryCreateOdooUser = async function(ctx) {
 
-    var user = ctx.body.user;
+    var user = ctx.request.body.user;
 
     var res = await rp({
         method: 'POST',
