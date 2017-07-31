@@ -72,8 +72,7 @@ exports.getUserInfo = function*(ctx) {
     var code = this.request.body.code;
     var user = yield getWeChatUserInfo(code);
     console.log("getUserInfo = " + JSON.stringify(user));
-    this.body = JSON.stringify(user)
-
+    this.body = { "userid": user.userid, "name": user.name };
 }
 
 
@@ -95,9 +94,9 @@ exports.tryCreateOdooUser = function*(ctx) {
         uri: 'http://119.29.187.201:12345/web/signup',
         qs: null,
         form: {
-            login: user.email,
-            password: user.password,
-            confirm_password: user.password,
+            login: user.userid,
+            password: user.userid,
+            confirm_password: user.userid,
             name: user.name
         },
         header: {

@@ -51,6 +51,17 @@ $(document).ready(function () {
       })
 
 
+      //     $.post("http://119.29.187.201:9191/test", { })
+      // .done(function (data) {
+
+      //   alert("sunc");
+
+      // })
+      // .fail(function () {
+      //   alert("error");
+      // })
+
+
 
 
     // $.post("http://119.29.187.201:9191/wx", { code: code })

@@ -13,4 +13,5 @@ module.exports = function routes(app) {
 
     app.post('/test', wx.test); //微信获取用户信息
 
+
 }
