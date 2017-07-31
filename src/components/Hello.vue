@@ -50,7 +50,7 @@ $(document).ready(function () {
 
   if (code) {
 
-    $.post("http://119.29.187.201:9191/test", { code: code })
+    $.post("http://119.29.187.201:9191/wx", { code: code })
       .done(function (data) {
 
 
@@ -60,6 +60,10 @@ $(document).ready(function () {
           .done(function (data) {
 
             alert('test');
+
+
+
+
 
           })
           .fail(function () {
