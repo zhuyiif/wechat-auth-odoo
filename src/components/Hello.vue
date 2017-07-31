@@ -58,6 +58,9 @@ $(document).ready(function () {
         $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
           .done(function (data) {
 
+
+            window.location.href = 'http://119.29.187.201:12345/web/login';
+
             
 
           })
