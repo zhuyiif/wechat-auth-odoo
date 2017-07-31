@@ -59,7 +59,7 @@ $(document).ready(function () {
     $.post("http://119.29.187.201:9191/test", { code: code })
       .done(function (data) {
 
-        currentUserId = data.userid;
+       
 
 
         $.post("http://119.29.187.201:9191/test", { code: code })
