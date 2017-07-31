@@ -53,15 +53,17 @@ $(document).ready(function () {
     $.post("http://119.29.187.201:9191/wx", { code: code })
       .done(function (data) {
 
-        $.post("http://119.29.187.201:9191/test", { code: code })
+        alert(data.userid);
+
+        $.post("http://119.29.187.201:9191/tryCreateOdooUser", { user: data })
           .done(function (data) {
 
-            alert('test');
+            
 
           })
           .fail(function () {
 
-            alert('fail test');
+            alert('fail tryCreateOdooUser');
 
           });
 

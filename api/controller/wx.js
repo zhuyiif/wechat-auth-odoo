@@ -94,9 +94,9 @@ exports.tryCreateOdooUser = async function(ctx) {
         uri: 'http://119.29.187.201:12345/web/signup',
         qs: null,
         form: {
-            login: user.email,
-            password: user.password,
-            confirm_password: user.password,
+            login: user.userid,
+            password: user.userid,
+            confirm_password: user.userid,
             name: user.name
         },
         header: {
@@ -104,7 +104,7 @@ exports.tryCreateOdooUser = async function(ctx) {
         },
         resolveWithFullResponse: true
     });
-    ctx.body = res;
+    ctx.body = { "success": "1" };
 }
 
 
