@@ -76,6 +76,12 @@ exports.getUserInfo = async function(ctx) {
 
 }
 
+exports.test = async function(ctx) {
+
+    ctx.body = { "test": "test" };
+
+}
+
 
 
 
